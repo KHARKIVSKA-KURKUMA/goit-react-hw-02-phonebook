@@ -57,24 +57,27 @@ class App extends Component {
   render() {
     const { filter } = this.state;
     const filteredContacts = this.getFilteredContacts();
+    console.log('filteredContacts :>> ', filteredContacts);
     return (
       <Container>
         <FormWrap>
           <Title>Phonebook</Title>
           <ContactForm onSubmit={this.addContact} />
         </FormWrap>
-        {filteredContacts.length > 0 ? (
-          <ContactWrap>
-            <SubTitle>Contacts</SubTitle>
-            <Filter filter={filter} onChange={this.changeFilter} />
-            <ContactList
-              contacts={filteredContacts}
-              onClick={this.deleteContact}
-            ></ContactList>
-          </ContactWrap>
-        ) : (
-          <Notification>You don't have contacts</Notification>
-        )}
+        <div>
+          <SubTitle>Contacts</SubTitle>
+          <Filter filter={filter} onChange={this.changeFilter} />
+          {filteredContacts.length > 0 ? (
+            <ContactWrap>
+              <ContactList
+                contacts={filteredContacts}
+                onClick={this.deleteContact}
+              ></ContactList>
+            </ContactWrap>
+          ) : (
+            <Notification>You don't have contacts</Notification>
+          )}
+        </div>
       </Container>
     );
   }

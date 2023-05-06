@@ -30,7 +30,8 @@ const Notification = styled.div`
   border-radius: 5px;
   font-size: 23px;
   font-weight: bold;
-  padding: 0 20px;
+  margin-top: 20px;
+  padding: 20px;
   min-width: 300px;
 `;
 const FormWrap = styled.div``;
